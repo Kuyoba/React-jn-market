@@ -48,46 +48,16 @@ const Main = styled.main`
 
 const Content = () => {
     const lovedThings = ["coding", "gaming", "music", "food", "sleeping"]
+    const [isHidden,setIsHidden]= useState(false);
 
-    const hideRef = useRef(null)
-    const showRef = useRef(null)
 
-    var isHidden=false;
-    const handleVisibility = () => {
-
-        const items = document.getElementById("list").querySelectorAll('p');
-
-        const hideSpan = hideRef.current
-        const showSpan = showRef.current
-
-        if (isHidden === true) {
-            //shows the list
-            for(let i=0;i<items.length;i++){
-                items[i].classList.remove('hidden')
-            }
-            hideSpan.classList.remove('hidden')
-            showSpan.classList.add('hidden')
-            console.log("list shown")
-            isHidden=false
-        } else if(isHidden===false){
-            //hides the list
-            for(let i=0;i<items.length;i++){
-                items[i].classList.add('hidden')
-            }
-            hideSpan.classList.add('hidden')
-            showSpan.classList.remove('hidden')
-            console.log("list hidden")
-            isHidden=true;
-        }
-    }
 
     return (
         <Main>
-            <button onClick={handleVisibility}>
-                <span ref={hideRef} className='hide'>hide list</span>
-                <span ref={showRef} className='show hidden'>show list</span>
+            <button id='button' onClick={() => setIsHidden(!isHidden)}>
+                {isHidden ? "show list" : "hide list"}
             </button>
-            <div id="list" className='list'>
+            <div id="list" className={`list ${!isHidden ? '' : 'hidden'}`}>
                 {lovedThings.map((el) => (
                     <p key={el}>{el}</p>
                 ))}
