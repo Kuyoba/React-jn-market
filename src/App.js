@@ -1,14 +1,11 @@
 import "./index.css";
-import Header from "./Header";
-import Content from "./Content";
-import Footer from "./Footer";
+import Stopwatch from "./Stopwatch";
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Content />
-      <Footer />
+      <Stopwatch/>
     </div>
   );
 }
