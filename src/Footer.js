@@ -4,7 +4,7 @@ const Footer = () => {
     const handleDate = ()=>{
         const date = new Date();
         let day = date.getDate()
-        let month = date.getMonth()
+        let month = date.getMonth()+1
         let year = date.getFullYear()
 
         return (
@@ -13,8 +13,13 @@ const Footer = () => {
             </p>
         )
     }
+    const footerStyle={
+        color:"#9ea3ad",
+        textShadow: "0px 2px 2px rgba(0,0,0,0.4)"
+        
+    }
     return (
-        <footer>
+        <footer style={footerStyle}>
             {handleDate()}
         </footer>
     )
